@@ -22,11 +22,18 @@ def test_directories(host, directory):
 
 
 @pytest.mark.parametrize(
-    "file,content", [("/etc/sysctl.d/99-disable-numa.conf", "^vm.zone_reclaim_mode=0$")]
+    "file",
+    [
+        {
+            "contents": "^vm.zone_reclaim_mode=0$",
+            "mode": "0o644",
+            "path": "/etc/sysctl.d/99-disable-numa.conf",
+        }
+    ],
 )
-def test_files(host, file, content):
+def test_files(host, file):
     """Test that config files were modified as expected."""
-    f = host.file(file)
-
-    assert f.exists
-    assert f.contains(content)
+    assert host.file(file["path"]).exists
+    assert host.file(file["path"]).is_file
+    assert oct(host.file(file["path"]).mode) == file["mode"]
+    assert host.file(file["path"]).contains(file["contents"])
