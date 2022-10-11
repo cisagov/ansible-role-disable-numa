@@ -2,13 +2,13 @@
 # tasks file for disable_numa
 
 - name: Create the /etc/sysctl.d directory (if necessary)
-  file:
+  ansible.builtin.file:
+    mode: 0755
     path: /etc/sysctl.d
     state: directory
-    mode: 0755
 
 - name: Disable NUMA
-  copy:
+  ansible.builtin.copy:
+    content: vm.zone_reclaim_mode=0
     dest: /etc/sysctl.d/99-disable-numa.conf
     mode: 0644
-    content: vm.zone_reclaim_mode=0
