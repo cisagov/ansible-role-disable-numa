@@ -1,8 +1,7 @@
 # ansible-role-disable-numa #
 
 [![GitHub Build Status](https://github.com/cisagov/ansible-role-disable-numa/workflows/build/badge.svg)](https://github.com/cisagov/ansible-role-disable-numa/actions)
-[![Total alerts](https://img.shields.io/lgtm/alerts/g/cisagov/ansible-role-disable-numa.svg?logo=lgtm&logoWidth=18)](https://lgtm.com/projects/g/cisagov/ansible-role-disable-numa/alerts/)
-[![Language grade: Python](https://img.shields.io/lgtm/grade/python/g/cisagov/ansible-role-disable-numa.svg?logo=lgtm&logoWidth=18)](https://lgtm.com/projects/g/cisagov/ansible-role-disable-numa/context:python)
+[![CodeQL](https://github.com/cisagov/ansible-role-disable-numa/workflows/CodeQL/badge.svg)](https://github.com/cisagov/ansible-role-disable-numa/actions/workflows/codeql-analysis.yml)
 
 An Ansible role for configuring an instance to disable
 [NUMA](https://en.wikipedia.org/wiki/Non-uniform_memory_access)
@@ -35,8 +34,10 @@ Here's how to use it in a playbook:
 - hosts: all
   become: yes
   become_method: sudo
-  roles:
-    - disable_numa
+  tasks:
+    - name: Disable NUMA
+      ansible.builtin.include_role:
+        name: disable_numa
 ```
 
 ## Contributing ##
