@@ -1,6 +1,4 @@
 ---
-# tasks file for disable_numa
-
 - name: Create the /etc/sysctl.d directory (if necessary)
   ansible.builtin.file:
     mode: 0755
