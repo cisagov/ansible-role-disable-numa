@@ -1,6 +1,7 @@
 # ansible-role-disable-numa #
 
 [![GitHub Build Status](https://github.com/cisagov/ansible-role-disable-numa/workflows/build/badge.svg)](https://github.com/cisagov/ansible-role-disable-numa/actions)
+[![License](https://img.shields.io/github/license/cisagov/ansible-role-disable-numa)](https://spdx.org/licenses/)
 [![CodeQL](https://github.com/cisagov/ansible-role-disable-numa/workflows/CodeQL/badge.svg)](https://github.com/cisagov/ansible-role-disable-numa/actions/workflows/codeql-analysis.yml)
 
 An Ansible role for configuring an instance to disable
